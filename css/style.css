@@ -1,0 +1,6 @@
+
+#content { padding: 50px; border:5px solid #ccc;}
+.left { width: 300px; float:left; padding-bottom: 3000px; margin-bottom:-3000px;}
+.right { padding-left: 300px; padding-bottom: 3000px; margin-bottom: -3000px; }
+td { padding: 5px;}
+
