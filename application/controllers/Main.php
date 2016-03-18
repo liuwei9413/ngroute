@@ -5,20 +5,25 @@ class Main extends CI_Controller {
 	public function index()
 	{		
 		$this->load->model('NewsModel');
-		// $this->load->database();
-
-		// $data = $this->NewsModel->getTest();
-		// $data = $this->NewsModel->get('2');
-		// print_r($data); die;
-
-		$this->load->view('main/index.html');
+		//新闻列表
+		$newsList = $this->NewsModel->getAll();
+		echo json_encode($newsList); 
+		// $this->load->view('main/index.php', array(
+		// 		"newsList" => json_encode($newsList)
+		// 	));
 	}
 
 
 	public function add() {
-		// echo "hello"; die;
-		print_r($_REQUEST);die;
-		$data = $this->input->post();
-		print_r($data); die;
+		$this->load->model('NewsModel');
+		$postData = $this->input->post();
+
+		$this->NewsModel->save($postData);
+
+
+		// print_r($data); die;
+
+
+
 	}
 }

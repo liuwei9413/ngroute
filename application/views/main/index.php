@@ -4,12 +4,11 @@
     <meta charset="UTF-8">
     <title>路由练习——文章发布系统</title>
     <link rel="stylesheet" href="css/style.css"/>
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script src="js/angular.min.js"></script>
-    <script src="js/angular-route.min.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
 </head>
 <body>
+<script>
+    // var newsList = <?= $newsList;?>;
+</script>
 <script type="text/ng-template" id="list.html">
     <table border="1" style="border-collapse: collapse">
         <tr>
@@ -18,7 +17,7 @@
             <td>内容</td>
             <td>发布时间</td>
         </tr>
-        <tr ng-repeat="news in newsLists">
+        <tr ng-repeat="news in newsList">
             <td>{{news.id}}</td>
             <td><a href="#/detail/{{news.id}}">{{news.title}}</a></td>
             <td>{{news.content}}</td>
@@ -63,8 +62,14 @@
             </ul>
         </div>
         <div class="right">
+            <input id="newsList" type="hidden" value='<?= $newsList;?>'>
             <div ng-view></div>
         </div>
     </div>
+    
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>    
 </body>
 </html>
