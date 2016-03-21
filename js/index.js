@@ -45,25 +45,11 @@ app.factory('getData', function($http, $q) {
         $http.get('http://i.ngroute.com/main', {cache: true}).then(function(res) {
             defer.resolve(res.data);
         }, function() {
-            alert(1)
-            defer.reject('数据请求失败');
+            defer.reject('请求失败');
         });
         return defer.promise;   
     }
 });
-
-//ajax缓存测试
-// app.factory('getData2', function($http, $q) {
-//     return function() {
-//         var defer = $q.defer();       
-//         $http.get('http://i.ngroute.com/main', {cache: true}).then(function(res) {
-//             defer.resolve(res.data);
-//         }, function() {
-//             defer.reject('数据请求失败');
-//         });
-//         return defer.promise;   
-//     }
-// });
 
 //新闻列表页
 app.controller('ListController', ['$scope', 'getData', function($scope, getData) {
@@ -72,7 +58,7 @@ app.controller('ListController', ['$scope', 'getData', function($scope, getData)
             dataList = data;
         }
         $scope.newsList = dataList; 
-    }, function() {
+    }, function(data) {
         alert(data);
     });
 }]);
@@ -84,7 +70,7 @@ app.controller('DetailController', ['$scope', '$routeParams', 'getData', functio
             dataList = data;
         }
         $scope.news = dataList[$routeParams.id - 1];
-    }, function() {
+    }, function(data) {
         alert(data);
     })    
 }]);
@@ -101,7 +87,7 @@ app.controller('EditController', ['$scope', '$location', '$routeParams', 'getDat
             data[$routeParams.id - 1] = $scope.news;
             $location.path('list');
         };
-    }, function() {
+    }, function(data) {
         alert(data);
     })      
 }]);
@@ -137,7 +123,7 @@ app.controller('AddController', ['$scope', '$http', '$location', 'getData', func
             });
 
         };
-    }, function() {
+    }, function(data) {
         alert(data);
     })
 

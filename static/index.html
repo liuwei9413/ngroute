@@ -2,7 +2,7 @@
 <html lang="en" ng-app="myApp">
 <head>
     <meta charset="UTF-8">
-    <title>路由练习——文章发布系统</title>
+    <title>路由练习——新闻发布系统</title>
     <link rel="stylesheet" href="/css/style.css"/>
 </head>
 <body>
@@ -44,19 +44,19 @@
 
 <script type="text/ng-template" id="add.html">
     <div class="add">
-        <h2>添加文章</h2>
+        <h2>添加新闻</h2>
         <div>标题：<input type="text" ng-model="title" /></div>
         <div>内容：<textarea cols="30" rows="10" style="vertical-align: top;" ng-model="content"></textarea></div>
         <input type="button" value="提交" ng-click="add()">
     </div>
 </script>
 
-    <h1>文章发布系统</h1>
+    <h1>新闻发布系统</h1>
     <div id="content">
         <div class="left">
             <ul>
-                <li><a href="#/list">文章列表</a></li>
-                <li><a href="#/add">发布文章</a></li>
+                <li><a href="#/list">新闻列表</a></li>
+                <li><a href="#/add">发布新闻</a></li>
             </ul>
         </div>
         <div class="right">

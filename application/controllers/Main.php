@@ -7,7 +7,9 @@ class Main extends CI_Controller {
 		$this->load->model('NewsModel');
 		//新闻列表
 		$newsList = $this->NewsModel->getAll();
+
 		echo json_encode($newsList); 
+			
 		// $this->load->view('main/index.php', array(
 		// 		"newsList" => json_encode($newsList)
 		// 	));
@@ -17,6 +19,8 @@ class Main extends CI_Controller {
 	public function add() {
 		$this->load->model('NewsModel');
 		$postData = $this->input->post();
+
+		print_r($postData); 
 
 		$this->NewsModel->save($postData);
 
