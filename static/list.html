@@ -1,0 +1,16 @@
+<table border="1" style="border-collapse: collapse">
+    <tr>
+        <td>id</td>
+        <td>标题</td>
+        <td>内容</td>
+        <td>发布时间</td>
+        <td>操作</td>
+    </tr>
+    <tr ng-repeat="news in newsList">
+        <td>{{news.id}}</td>
+        <td><a href="#/detail/{{news.id}}">{{news.title}}</a></td>
+        <td>{{news.content}}</td>
+        <td>{{news.date | date : 'yyyy-MM-dd HH:mm:ss' }}</td>
+        <td><a href="javascript:;" ng-click="delete(news.id);">删除</a>|<a href="#/detail/{{news.id}}">修改</a></td>
+    </tr>
+</table>

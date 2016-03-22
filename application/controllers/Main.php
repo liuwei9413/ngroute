@@ -15,19 +15,33 @@ class Main extends CI_Controller {
 		// 	));
 	}
 
-
 	public function add() {
+		// print_r($_REQUEST); die;
 		$this->load->model('NewsModel');
 		$postData = $this->input->post();
+		//获取当前新增或修改文章的id
+		$id = $this->NewsModel->save($postData);
 
-		print_r($postData); 
+		echo $id; 
+	}
 
-		$this->NewsModel->save($postData);
+	public function update() {
+		// print_r($_REQUEST); die;
+		$this->load->model('NewsModel');
+		$postData = $this->input->post();
+		$id = $postData['id'];
 
+		$this->NewsModel->save($postData, $id);
 
-		// print_r($data); die;
+	}
 
+	public function delete() {
+		$this->load->model('NewsModel');
+		$id = $this->input->post('id');
 
-
+		$status = $this->NewsModel->delete($id);
+		if ( $status ) {
+			echo "ok";
+		}
 	}
 }
